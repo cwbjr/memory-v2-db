@@ -24,5 +24,7 @@ exports.seed = function(knex, Promise) {
           aroma: 6
         }
       ]);
+    }).then(() => {
+      return knex.raw('ALTER SEQUENCE coffee_id_seq RESTART WITH 4;');
     });
 };
