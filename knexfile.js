@@ -1,13 +1,15 @@
 // Update with your config settings.
+require('dotenv').load()
+
 module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres:///memory-v2'
+    connection: 'postgres://localhost/memory-v2'
   },
 
   production: {
     client: 'pg',
-    connection: process.env.DATABASE_URL
+    connection: `${process.env.DATABASE_URL}?ssl=true`
   }
 };
